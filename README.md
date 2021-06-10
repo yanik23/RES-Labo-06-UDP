@@ -122,11 +122,11 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
 | | *Enter your response here...*  |
 |Question | What is **npm**?  |
-| | *Enter your response here...*  |
+| | npm is the official package manager for Node.js. It manages installation and dependicies |
 |Question | What is the `npm install` command and what is the purpose of the `--save` flag?  |
-| | *Enter your response here...*  |
+| | the npm install is the command used to download and install node.js packages  |
 |Question | How can we use the `https://www.npmjs.com/` web site?  |
-| | *Enter your response here...*  |
+| | Simply type de Node.js package you are searching for and it will give you information on how to install it, the dependecies, and the dependents  |
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122? |
 | | *Enter your response here...*  |
 |Question | In Node.js, how can we execute a function on a **periodic** basis? |
