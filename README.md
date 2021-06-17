@@ -98,16 +98,16 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 
 | #        | Topic                                                                                                                                                                  |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Question | How can we represent the system in an**architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
+| Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
 |          | ![image](./images/step1_diagram.png)                                                                                                                                                               |
 | Question | Who is going to **send UDP datagrams** and **when**?                                                                                                                    |
-|          | Every second a musician will send UDP datagrams                                                                                                                                   |
+|          | The musician will send the UDP datagrams. He will send them as soon as the docker container of the musician has started.                                                                                                                                      |
 | Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received?                                                                        |
-|          | An auditor is goint to listen for UDP datagrams, once a datagram is recieved it will keep track of the musician state                                                                                                                                          |
+|          | The auditor.                                                                                                                                        |
 | Question | What **payload** should we put in the UDP datagrams?                                                                                                                    |
-|          | An UUID, the type of instrument                                                                                                                                      |
+|          | *Enter your response here...*                                                                                                                                          |
 | Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures?                |
-|          | The reciever will have an array of Object (JSON) to store uuid, instrument, and active, the musician will have a simple object containing his uuid, and instrument, the auditor sends his payload when an external client connects with netcat to the server                                                                                                                              |
+|          | *Enter your response here...*                                                                                                                                          |
 
 ## Task 2: implement a "musician" Node.js application
 
@@ -115,37 +115,37 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #        | Topic                                                                                                                                           |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**?                                                              |
-|          | JSON.Stringify(`data`)                                                                                                                   |
-| Question | What is**npm**?                                                                                                                                 |
+|          | With the function ```JSON.stringify()``` we can convert a JSON passed in argument into a String. More information can be found [here](https://www.w3schools.com/js/js_json_stringify.asp).|
+| Question | What is **npm**?                                                                                                                                 |
 |          | npm is the official package manager for Node.js. It manages installation and dependicies                                                        |
 | Question | What is the`npm install` command and what is the purpose of the `--save` flag?                                                                  |
-|          | the npm install is the command used to download and install node.js packages                                                                    |
+|          | ```npm install``` is the command used to download and install Node.js packages.The ```--save``` flag is used to include the installed package inside the dependencies section of the ```package.json``` file. Since npm version 5.0.0, the installed modules are added as a dependency automatically, the ```--save``` flag is no longer needed.                                                                   |
 | Question | How can we use the`https://www.npmjs.com/` web site?                                                                                            |
-|          | Simply type de Node.js package you are searching for and it will give you information on how to install it, the dependecies, and the dependents |
+|          | Simply type de Node.js package you are searching for and it will give you information on how to install it, the dependencies, and the dependents |
 | Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?                                                                            |
-|          | Using a module imported `uuid`                                                                                                                    |
+|          | The Node.js community already did a lot of work for us (we don't need to write everything from 0). Just search a Node.js package  on the website of the previous question called [**uuid**](https://www.npmjs.com/package/uuid), and follow instruction of the website.                                                                                                                   |
 | Question | In Node.js, how can we execute a function on a **periodic** basis?                                                                               |
-|          | *Enter your response here...*                                                                                                                   |
+|          | By using the Node.js function ```SetInterval()``` and passing the **period** and the **function** we want to execute periodically as arguments of the function. More information can be found [here](https://nodejs.org/en/docs/guides/timers-in-node/).                                                                                                                   |
 | Question | In Node.js, how can we **emit UDP datagrams**?                                                                                                   |
-|          | *Enter your response here...*                                                                                                                   |
+|          | By using the Node.js datagram socket. More precisely the ```send()``` function. More information can be found [here](https://nodejs.org/api/dgram.html).                                                                                                                  |
 | Question | In Node.js, how can we **access the command line arguments**?                                                                                    |
-|          | *Enter your response here...*                                                                                                                   |
+|          | By using the the command **process.argv**. More information can be found [here](https://nodejs.org/en/knowledge/command-line/how-to-parse-command-line-arguments/)                                                                                                                  |
 
 ## Task 3: package the "musician" app in a Docker image
 
 
 | #        | Topic                                                                               |
 | ---------- | ------------------------------------------------------------------------------------- |
-| Question | How do we**define and build our own Docker image**?                                 |
+| Question | How do we **define and build our own Docker image**?                                 |
+|          | By running the following command in the same folder as the ```Dockerfile```. Just need to run ```docker build -t <name_of_docker_image> .```. (**Important !** do not forget that there is a point at the end of the command). |
+| Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?                         |
 |          | *Enter your response here...*                                                       |
-| Question | How can we use the`ENTRYPOINT` statement in our Dockerfile?                         |
-|          | *Enter your response here...*                                                       |
-| Question | After building our Docker image, how do we use it to**run containers**?             |
-|          | *Enter your response here...*                                                       |
-| Question | How do we get the list of all**running containers**?                                |
-|          | *Enter your response here...*                                                       |
-| Question | How do we**stop/kill** one running container?                                       |
-|          | *Enter your response here...*                                                       |
+| Question | After building our Docker image, how do we use it to **run containers**?             |
+|          | Once the image is build, we simply use the docker command run : ```docker run <name_of_docker_image>```                                                      |
+| Question | How do we get the list of all **running containers**?                                |
+|          | By using the command ```docker ps```                                                    |
+| Question | How do we **stop/kill** one running container?                                       |
+|          | By using the command ```docker kill <name_of_docker_container>```                                                      |
 | Question | How can we check that our running containers are effectively sending UDP datagrams? |
 |          | *Enter your response here...*                                                       |
 
