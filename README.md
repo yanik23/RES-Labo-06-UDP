@@ -100,35 +100,35 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Question | How can we represent the system in an**architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
 |          | ![image](./images/step1_diagram.png)                                                                                                                                                               |
-| Question | Who is going to**send UDP datagrams** and **when**?                                                                                                                    |
-|          | *Enter your response here...*                                                                                                                                          |
-| Question | Who is going to**listen for UDP datagrams** and what should happen when a datagram is received?                                                                        |
-|          | *Enter your response here...*                                                                                                                                          |
-| Question | What**payload** should we put in the UDP datagrams?                                                                                                                    |
-|          | *Enter your response here...*                                                                                                                                          |
-| Question | What**data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures?                |
-|          | *Enter your response here...*                                                                                                                                          |
+| Question | Who is going to **send UDP datagrams** and **when**?                                                                                                                    |
+|          | Every second a musician will send UDP datagrams                                                                                                                                   |
+| Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received?                                                                        |
+|          | An auditor is goint to listen for UDP datagrams, once a datagram is recieved it will keep track of the musician state                                                                                                                                          |
+| Question | What **payload** should we put in the UDP datagrams?                                                                                                                    |
+|          | An UUID, the type of instrument                                                                                                                                      |
+| Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures?                |
+|          | The reciever will have an array of Object (JSON) to store uuid, instrument, and active, the musician will have a simple object containing his uuid, and instrument, the auditor sends his payload when an external client connects with netcat to the server                                                                                                                              |
 
 ## Task 2: implement a "musician" Node.js application
 
 
 | #        | Topic                                                                                                                                           |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Question | In a JavaScript program, if we have an object, how can we**serialize it in JSON**?                                                              |
-|          | *Enter your response here...*                                                                                                                   |
+| Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**?                                                              |
+|          | JSON.Stringify(`data`)                                                                                                                   |
 | Question | What is**npm**?                                                                                                                                 |
 |          | npm is the official package manager for Node.js. It manages installation and dependicies                                                        |
 | Question | What is the`npm install` command and what is the purpose of the `--save` flag?                                                                  |
 |          | the npm install is the command used to download and install node.js packages                                                                    |
 | Question | How can we use the`https://www.npmjs.com/` web site?                                                                                            |
 |          | Simply type de Node.js package you are searching for and it will give you information on how to install it, the dependecies, and the dependents |
-| Question | In JavaScript, how can we**generate a UUID** compliant with RFC4122?                                                                            |
+| Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?                                                                            |
+|          | Using a module imported `uuid`                                                                                                                    |
+| Question | In Node.js, how can we execute a function on a **periodic** basis?                                                                               |
 |          | *Enter your response here...*                                                                                                                   |
-| Question | In Node.js, how can we execute a function on a**periodic** basis?                                                                               |
+| Question | In Node.js, how can we **emit UDP datagrams**?                                                                                                   |
 |          | *Enter your response here...*                                                                                                                   |
-| Question | In Node.js, how can we**emit UDP datagrams**?                                                                                                   |
-|          | *Enter your response here...*                                                                                                                   |
-| Question | In Node.js, how can we**access the command line arguments**?                                                                                    |
+| Question | In Node.js, how can we **access the command line arguments**?                                                                                    |
 |          | *Enter your response here...*                                                                                                                   |
 
 ## Task 3: package the "musician" app in a Docker image
