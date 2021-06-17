@@ -7,7 +7,7 @@ const uuid = require('uuid');
 const dgram = require('dgram');
 // Let's create a datagram socket. We will use it to send our UDP datagrams
 const socket = dgram.createSocket('udp4');
-
+const moment = require('moment')
 
 // Creat a musician map and serialize it to JSON
 /*const instruments = ["piano", "trumpet", "flute", "violin", "drum"];
@@ -30,11 +30,10 @@ const MAP_OF_SOUNDS = {
 }
 function Musician(instrument) {
     const musician = new Object();
-    musician.id = uuid.v4();
+    musician.uuid = uuid.v4();
     musician.instrument = instrument;
     //musician.activeSince = activeSince;
     musician.sound = MAP_OF_SOUNDS[instrument];
-
     const payload = JSON.stringify(musician);
 
     // Send the payload via UDP (multicast)
@@ -42,7 +41,7 @@ function Musician(instrument) {
 
     Musician.prototype.sendSound = function()
     {
-        socket.send(message, 0, message.length, protocol.PROTOCOL_PORT, protocol.PROTOCOL_MULTICAST_ADDRESS,
+        socket.send(payload, protocol.PROTOCOL_PORT, protocol.PROTOCOL_MULTICAST_ADDRESS,
             function (err, bytes) {
                 console.log("Sent payload: " + payload + " via port " + protocol.PROTOCOL_PORT);
 
@@ -61,11 +60,11 @@ function Musician(instrument) {
  * be initiated within the constructor
  */
 
-var myArgs = process.argv.slice(2);
+var myArgs = process.argv;
 
-if(process.argv.length != 3 || !(myArgs in MAP_OF_SOUNDS)){
+if(process.argv.length != 3 || !(myArgs[2] in MAP_OF_SOUNDS)){
      console.log("Number of parameters invalid");
 }
 else {
-    var musician = new Musician(myArgs);
+    var musician = new Musician(myArgs[2]);
 }
