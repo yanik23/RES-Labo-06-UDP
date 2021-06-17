@@ -13,5 +13,8 @@
     "chai": "3.5.0",
     "chance": "1.0.3",
     "dockerode": "2.2.10"
+  },
+  "devDependencies": {
+    "uuid": "^8.3.2"
   }
 }
