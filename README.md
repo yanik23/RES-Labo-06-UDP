@@ -115,26 +115,35 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #        | Topic                                                                                                                                           |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**?                                                             
-|
+  |
 |          | With the **stringify** function we can convert a string into a JSON payload                                                                      
-|
+  |
 | Question | What is **npm**?                                                                                                                                 
-|
+  |
 |          | npm is the official package manager for Node.js. It manages installation and dependicies                                                         
-|
+  |
 | Question | What is the `npm install` command and what is the purpose of the `--save` flag?                                                                  
-|
-|          | the `npm install` is the command used to download and install node.js packages. The `--save` flag is used to include the installed package inside the dependencies section of the **package.json** file. Since npm version 5.0.0, the installed modules are added as a dependecy automaticly, the `--save` flag is no longer needed.                                                     |
-| Question | How can we use the `https://www.npmjs.com/` web site?                                                                                            |
-|          | Simply type de Node.js package you are searching for and it will give you information on how to install it, the dependecies, and the dependents |
-| Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?                                                                            |
-|          | The Node.js community already did a lot of work for us (we don't need to write everything from 0). Just search a Node.js package called [**uuid**](https://www.npmjs.com/package/uuid), and follow instruction of tehe website.                                                                                                               |
-| Question | In Node.js, how can we execute a function on a **periodic** basis?                                                                               |
+  |
+|          | the `npm install` is the command used to download and install node.js packages. The `--save` flag is used to include the installed package inside the dependencies section of the **package.json** file. Since npm version 5.0.0, the installed modules are added as a dependecy automaticly, the `--save` flag is no longer needed.                   |
+| Question | How can we use the `https://www.npmjs.com/` web site?                                                                                            
+  |
+|          | Simply type de Node.js package you are searching for and it will give you information on how to install it, the dependecies, and the dependents 
+  |
+| Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?                                                                            
+  |
+|          | The Node.js community already did a lot of work for us (we don't need to write everything from 0). Just search a Node.js package called [**uuid**](https://www.npmjs.com/package/uuid), and follow instruction of tehe website.                                                                                              
+  |
+| Question | In Node.js, how can we execute a function on a **periodic** basis?                                                                               
+  |
 |          | By using the Node.js function **SetInterval()** and passing the period and the function we want to execute periodicly as arguments of the function. More information can be found [here](https://nodejs.org/en/docs/guides/timers-in-node/)                                                                                                               |
-| Question | In Node.js, how can we **emit UDP datagrams**?                                                                                                   |
-|          | *Enter your response here...*                                                                                                                   |
-| Question | In Node.js, how can we **access the command line arguments**?                                                                                    |
-|          | By using the the command **process.argv**. More information can be found [here](https://nodejs.org/en/knowledge/command-line/how-to-parse-command-line-arguments/)                                                                                                              |
+| Question | In Node.js, how can we **emit UDP datagrams**?                                                                                                   
+  |
+|          | *Enter your response here...*                                                                                                                   
+  |
+| Question | In Node.js, how can we **access the command line arguments**?                                                                                    
+  |
+|          | By using the the command **process.argv**. More information can be found [here](https://nodejs.org/en/knowledge/command-line/how-to-parse-command-line-arguments/) 
+  |
 
 ## Task 3: package the "musician" app in a Docker image
 
