@@ -98,15 +98,15 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 
 | #        | Topic                                                                                                                                                                  |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Question | How can we represent the system in an**architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
+| Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
 |          | ![image](./images/step1_diagram.png)                                                                                                                                                               |
-| Question | Who is going to**send UDP datagrams** and **when**?                                                                                                                    |
+| Question | Who is going to **send UDP datagrams** and **when**?                                                                                                                    |
+|          | Le musicien va envoyer le datagram UDP dès que son conteneur Docker est lancé.                                                                                                                                          |
+| Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received?                                                                        |
 |          | *Enter your response here...*                                                                                                                                          |
-| Question | Who is going to**listen for UDP datagrams** and what should happen when a datagram is received?                                                                        |
+| Question | What **payload** should we put in the UDP datagrams?                                                                                                                    |
 |          | *Enter your response here...*                                                                                                                                          |
-| Question | What**payload** should we put in the UDP datagrams?                                                                                                                    |
-|          | *Enter your response here...*                                                                                                                                          |
-| Question | What**data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures?                |
+| Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures?                |
 |          | *Enter your response here...*                                                                                                                                          |
 
 ## Task 2: implement a "musician" Node.js application
@@ -114,8 +114,8 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 
 | #        | Topic                                                                                                                                           |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Question | In a JavaScript program, if we have an object, how can we**serialize it in JSON**?                                                              |
-|          | *Enter your response here...*                                                                                                                   |
+| Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**?                                                              |
+|          | With the **stringify** function we can convert a string into a JSON payload                              |
 | Question | What is**npm**?                                                                                                                                 |
 |          | npm is the official package manager for Node.js. It manages installation and dependicies                                                        |
 | Question | What is the`npm install` command and what is the purpose of the `--save` flag?                                                                  |
