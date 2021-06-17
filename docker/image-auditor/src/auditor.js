@@ -3,7 +3,7 @@ const net = require('net')
 const protocol = require('./musician-protocol')
 const moment = require('moment')
 
-const TCP_PORT = 2210
+const TCP_PORT = 2205
 const TIMEOUT = 5
 
 const socket = dgram.createSocket('udp4');
@@ -66,11 +66,15 @@ function sendTCPResponse(socket){
 TCP_Serv = net.Server();
 // The server listens to a socket for a client to make a connection request.
 TCP_Serv.listen(TCP_PORT, function() {
-    console.log("Listening for connection on" + TCP_PORT + ".");
+    console.log("Listening for connection on " + TCP_PORT + ".");
 });
 
 //when a client connects via TCP
 TCP_Serv.on('connection', function(socket){
     sendTCPResponse(socket)
+
+    socket.on('error', function(err) {
+        console.log(`Error: ${err}`);
+    });
 })
 

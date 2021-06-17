@@ -1,5 +1,7 @@
-FROM node:14.17.0
+FROM node:14.17.1
 
-COPY src /opt/app/
+WORKDIR /opt/app
 
-ENTRYPOINT ["node", "/opt/app/musician.js"]
+COPY src ./
+RUN npm i
+ENTRYPOINT ["node", "musician.js"]
