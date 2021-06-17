@@ -106,7 +106,6 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |          | The auditor.                                                                                                                                        |
 | Question | What **payload** should we put in the UDP datagrams?                                                                                                                    |
 |          | *Enter your response here...*                                                                                                                                          |
-
 | Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures?                |
 |          | *Enter your response here...*                                                                                                                                          |
 
@@ -132,17 +131,14 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | Question | In Node.js, how can we **access the command line arguments**?                                                                                    |
 |          | By using the the command **process.argv**. More information can be found [here](https://nodejs.org/en/knowledge/command-line/how-to-parse-command-line-arguments/)                                                                                                                  |
 
-
-
 ## Task 3: package the "musician" app in a Docker image
 
 
 | #        | Topic                                                                               |
 | ---------- | ------------------------------------------------------------------------------------- |
 | Question | How do we **define and build our own Docker image**?                                 |
-
-|          | By running the following command in the same folder as the ```Dockerfile```. Just need to run ```docker build -t <name_of_docker_image> .```. (**Important !** do not forget that there is a point at the end of the command.|
-| Question | How can we use the`ENTRYPOINT` statement in our Dockerfile?                         |
+|          | By running the following command in the same folder as the ```Dockerfile```. Just need to run ```docker build -t <name_of_docker_image> .```. (**Important !** do not forget that there is a point at the end of the command). |
+| Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?                         |
 |          | *Enter your response here...*                                                       |
 | Question | After building our Docker image, how do we use it to **run containers**?             |
 |          | Once the image is build, we simply use the docker command run : ```docker run <name_of_docker_image>```                                                      |
