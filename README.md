@@ -101,7 +101,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
 |          | ![image](./images/step1_diagram.png)                                                                                                                                                               |
 | Question | Who is going to **send UDP datagrams** and **when**?                                                                                                                    |
-|          | Le musicien va envoyer le datagram UDP dès que son conteneur Docker est lancé.                                                                                                                                          |
+|          | The musician will send the UDP datagrams. He will send them as soon as the docker container of the musician has started.                                                                                                                                          |
 | Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received?                                                                        |
 |          | *Enter your response here...*                                                                                                                                          |
 | Question | What **payload** should we put in the UDP datagrams?                                                                                                                    |
@@ -118,34 +118,37 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |          | With the **stringify** function we can convert a string into a JSON payload                              |
 | Question | What is**npm**?                                                                                                                                 |
 |          | npm is the official package manager for Node.js. It manages installation and dependicies                                                        |
-| Question | What is the`npm install` command and what is the purpose of the `--save` flag?                                                                  |
-|          | the npm install is the command used to download and install node.js packages                                                                    |
-| Question | How can we use the`https://www.npmjs.com/` web site?                                                                                            |
+| Question | What is the `npm install` command and what is the purpose of the `--save` flag?                                                                  |
+|          | the `npm install` is the command used to download and install node.js packages.
+ The `--save` flag is used to include the installed package inside the dependencies section of the **package.json** file. Since npm version 5.0.0, the installed modules are added as a dependecy automaticly, the `--save` flag is no longer needed.
+ |
+| Question | How can we use the `https://www.npmjs.com/` web site?                                                                                            |
 |          | Simply type de Node.js package you are searching for and it will give you information on how to install it, the dependecies, and the dependents |
-| Question | In JavaScript, how can we**generate a UUID** compliant with RFC4122?                                                                            |
+| Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?                                                                            |
+|          | The Node.js community already did a lot of work for us (we don't need to write everything from 0). Just search a Node.js package called [**uuid**](https://www.npmjs.com/package/uuid), and follow instruction of tehe website.                                                                                                               |
+| Question | In Node.js, how can we execute a function on a **periodic** basis?                                                                               |
+|          | By using the Node.js function **SetInterval()** and passing the period and the function we want to execute periodicly as arguments of the function. More information can be found [here](https://nodejs.org/en/docs/guides/timers-in-node/)                                                                                                               |
+| Question | In Node.js, how can we **emit UDP datagrams**?                                                                                                   |
 |          | *Enter your response here...*                                                                                                                   |
-| Question | In Node.js, how can we execute a function on a**periodic** basis?                                                                               |
-|          | *Enter your response here...*                                                                                                                   |
-| Question | In Node.js, how can we**emit UDP datagrams**?                                                                                                   |
-|          | *Enter your response here...*                                                                                                                   |
-| Question | In Node.js, how can we**access the command line arguments**?                                                                                    |
-|          | *Enter your response here...*                                                                                                                   |
+| Question | In Node.js, how can we **access the command line arguments**?                                                                                    |
+|          | By using the the command **process.argv**. More information can be found [here](https://nodejs.org/en/knowledge/command-line/how-to-parse-command-line-arguments/)                                                                                                              |
 
 ## Task 3: package the "musician" app in a Docker image
 
 
 | #        | Topic                                                                               |
 | ---------- | ------------------------------------------------------------------------------------- |
-| Question | How do we**define and build our own Docker image**?                                 |
+| Question | How do we **define and build our own Docker image**?                                 |
 |          | *Enter your response here...*                                                       |
 | Question | How can we use the`ENTRYPOINT` statement in our Dockerfile?                         |
 |          | *Enter your response here...*                                                       |
-| Question | After building our Docker image, how do we use it to**run containers**?             |
-|          | *Enter your response here...*                                                       |
-| Question | How do we get the list of all**running containers**?                                |
-|          | *Enter your response here...*                                                       |
-| Question | How do we**stop/kill** one running container?                                       |
-|          | *Enter your response here...*                                                       |
+| Question | After building our Docker image, how do we use it to **run containers**?             |
+|          | Once the image is build, we simply use the docker command run :
+***docker run <name_of_docker_image>*** |
+| Question | How do we get the list of all **running containers**?                                |
+|          | By using the command ***docker ps***                                                     |
+| Question | How do we **stop/kill** one running container?                                       |
+|          | By using the command ***docker kill <name_of_docker_container>***                                                   |
 | Question | How can we check that our running containers are effectively sending UDP datagrams? |
 |          | *Enter your response here...*                                                       |
 
