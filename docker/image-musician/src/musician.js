@@ -17,18 +17,18 @@ const MAP_OF_SOUNDS = {
     drum: 'boum-boum'
 }
 function Musician(instrument) {
-    const musician = new Object();
+     musician = new Object();
     musician.uuid = uuid.v4();
     musician.instrument = instrument;
     musician.sound = MAP_OF_SOUNDS[instrument];
+    console.log(musician)
     const payload = JSON.stringify(musician);
 
-    message = new Buffer(payload);
 
     // Send the payload via UDP (multicast)
     Musician.prototype.sendSound = function()
     {
-        socket.send(message, 0, message.length, protocol.PROTOCOL_PORT, protocol.PROTOCOL_MULTICAST_ADDRESS,
+        socket.send(payload, protocol.PROTOCOL_PORT, protocol.PROTOCOL_MULTICAST_ADDRESS,
             function (err, bytes) {
                 console.log("Sent payload: " + payload + " via port " + protocol.PROTOCOL_PORT);
             });
@@ -37,11 +37,11 @@ function Musician(instrument) {
     setInterval(this.sendSound.bind(this), 1000);
 }
 
-var myArgs = process.argv.slice(2);
+var myArgs = process.argv;
 
 //if the number of arguments aren't right or the name of the instrument isn't in the map, we send an error message.
 //else we create the musician.
-if(process.argv.length != 3 || !(myArgs in MAP_OF_SOUNDS)){
+if(process.argv.length != 3 || !(myArgs[2] in MAP_OF_SOUNDS)){
      console.log("Number of parameters invalid");
 }
 else {

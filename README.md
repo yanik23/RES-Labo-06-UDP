@@ -185,7 +185,7 @@ TCP_Serv.on('connection', function(socket){
 | #        | Topic                                                                                |
 | ---------- | -------------------------------------------------------------------------------------- |
 | Question | How do we validate that the whole system works, once we have built our Docker image? |
-|          | using the `validate.sh` is one way to check if everything works out                                                    |
+|          | using the `validate.sh` is one way to check if everything works out we should see that 4 musicians have disappeared. Or we can start containers manually and check by connecting via telnet to an auditor container if he returns the correct result                                                     |
 
 ## Constraints
 

@@ -3,13 +3,13 @@ const net = require('net')
 const protocol = require('./musician-protocol')
 const moment = require('moment')
 
-const TCP_PORT = 2210
+const TCP_PORT = 2205
 const TIMEOUT = 5
 
 const socket = dgram.createSocket('udp4');
 
 socket.bind(protocol.PROTOCOL_PORT, protocol.PROTOCOL_MULTICAST_ADDRESS, () => {
-    console.log("joining multicast group")
+    console.log("joining multicast group at "+ protocol.PROTOCOL_MULTICAST_ADDRESS)
     socket.addMembership(protocol.PROTOCOL_MULTICAST_ADDRESS)
 })
 
@@ -32,6 +32,7 @@ socket.on('message', (data,info) => {
         last_active : lastEmitted
     })
 
+    console.log( "Message recived")
 })
 function purgeTimedOut(){
     //check musician activity with current time and current
