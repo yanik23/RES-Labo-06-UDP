@@ -155,15 +155,29 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #        | Topic                                                                                             |
 | ---------- | --------------------------------------------------------------------------------------------------- |
 | Question | With Node.js, how can we listen for UDP datagrams in a multicast group?                           |
-|          | *Enter your response here...*                                                                     |
+|          | We need to join the multicast group at the specified multicast address                                                                |
 | Question | How can we use the`Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**? |
-|          | *Enter your response here...*                                                                     |
+|          |      use the function `.set(key,value) ` to insert a new entry, we use the uuid as key and the rest as values, this will prevent duplicates. we can delete any value by using `.delete(key)`                                                          |
 | Question | How can we use the`Moment.js` npm module to help us with **date manipulations** and formatting?   |
-|          | *Enter your response here...*                                                                     |
+|          |    `moment` gives us multiple functions to manipulate and format dates. in our case `.moment().toISOString()` is quite usefull otherwise if we want other formats we can use `moments().format()`. to get the time between two dates we can use `moment().diff()`                                    |
 | Question | When and how do we**get rid of inactive players**?                                                |
-|          | *Enter your response here...*                                                                     |
+|          | Everytime a clients connects to the auditor to ask for a list of musicians we check if the musicians are up to date. By checking the difference between their last active time and the current time we can verify if they have reached a time out and then delete them from the `Map`                                                                    |
 | Question | How do I implement a**simple TCP server** in Node.js?                                             |
-|          | *Enter your response here...*                                                                     |
+|          | Make the auditor listen to a specified port (`2205` in our case), use the callback `connection` to build our response when a clients connects to the auditor. everythin develloped with the `net` module|
+
+```js
+/***TCP SERVER */
+TCP_Serv = net.Server();
+// The server listens to a socket for a client to make a connection request.
+TCP_Serv.listen(TCP_PORT, function() {
+    console.log("Listening for connection on" + TCP_PORT + ".");
+});
+
+//when a client connects via TCP
+TCP_Serv.on('connection', function(socket){
+    SendResponse(socket)
+})
+```                                                                   
 
 ## Task 5: package the "auditor" app in a Docker image
 
@@ -171,7 +185,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #        | Topic                                                                                |
 | ---------- | -------------------------------------------------------------------------------------- |
 | Question | How do we validate that the whole system works, once we have built our Docker image? |
-|          | *Enter your response here...*                                                        |
+|          | using the `validate.sh` is one way to check if everything works out                                                    |
 
 ## Constraints
 

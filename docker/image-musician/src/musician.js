@@ -28,7 +28,7 @@ function Musician(instrument) {
     // Send the payload via UDP (multicast)
     Musician.prototype.sendSound = function()
     {
-        socket.send(payload, protocol.PROTOCOL_PORT, protocol.PROTOCOL_MULTICAST_ADDRESS,
+        socket.send(message, 0, message.length, protocol.PROTOCOL_PORT, protocol.PROTOCOL_MULTICAST_ADDRESS,
             function (err, bytes) {
                 console.log("Sent payload: " + payload + " via port " + protocol.PROTOCOL_PORT);
             });

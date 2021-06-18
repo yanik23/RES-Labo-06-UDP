@@ -2,9 +2,9 @@ FROM node:14.17.1
 
 WORKDIR /opt/app
 
-COPY src ./
+COPY src /opt/app
 
 # install dependencies (node_modules dir)
 RUN npm i
 
-ENTRYPOINT [ "node", "auditor.js" ]
+ENTRYPOINT [ "node", "/opt/app/auditor.js" ]
