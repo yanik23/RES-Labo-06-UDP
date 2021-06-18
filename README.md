@@ -139,15 +139,15 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | Question | How do we **define and build our own Docker image**?                                 |
 |          | By running the following command in the same folder as the ```Dockerfile```. Just need to run ```docker build -t <name_of_docker_image> .```. (**Important !** do not forget that there is a point at the end of the command). |
 | Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?                         |
-|          | *Enter your response here...*                                                       |
+|          | Just like the ```cmd``` command : ```ENTRYPOINT ["node","/opt/app/app.js"]```                                                     |
 | Question | After building our Docker image, how do we use it to **run containers**?             |
-|          | Once the image is build, we simply use the docker command run : ```docker run <name_of_docker_image>```                                                      |
+|          | Once the image is build, we simply use the docker command run : ```docker run <name_of_docker_image>```.                                                      |
 | Question | How do we get the list of all **running containers**?                                |
 |          | By using the command ```docker ps```                                                    |
 | Question | How do we **stop/kill** one running container?                                       |
 |          | By using the command ```docker kill <name_of_docker_container>```                                                      |
 | Question | How can we check that our running containers are effectively sending UDP datagrams? |
-|          | *Enter your response here...*                                                       |
+|          | There are various ways. One is for example running the container but not in background (without the ```-d``` flag). Another way is to check the logs of the container with **Docker Desktop**.                                                      |
 
 ## Task 4: implement an "auditor" Node.js application
 
