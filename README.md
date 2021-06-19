@@ -103,11 +103,11 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | Question | Who is going to **send UDP datagrams** and **when**?                                                                                                                    |
 |          | The musician will send the UDP datagrams. He will send them as soon as the docker container of the musician has started.                                                                                                                                      |
 | Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received?                                                                        |
-|          | The auditor.                                                                                                                                        |
+|          | The auditor. Once received the datagram is saved in structure (a map) and as soon as a TCP connection is made with the  auditor he will send all the datagrams that he has saved.                                                                                                                                   |
 | Question | What **payload** should we put in the UDP datagrams?                                                                                                                    |
-|          | *Enter your response here...*                                                                                                                                          |
+|          | the uuid, the instrument and the sound of the instrument.                                                                                                                                         |
 | Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures?                |
-|          | *Enter your response here...*                                                                                                                                          |
+|          | The sender uses a JSON object that saves the data of the musician (uuid, instrument, sound...). The receiver uses a map that saves the active musicians. We update the map of musicians every seconds. If a musician is not active since 5 seconds he is removed from the map. We will query these data structures once a client uses the TCP protocol to connect to the auditor by using Telnet or Netcat.                                                                                                                                        |
 
 ## Task 2: implement a "musician" Node.js application
 
